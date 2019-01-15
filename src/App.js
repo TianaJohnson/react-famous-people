@@ -31,6 +31,11 @@ class App extends Component {
 
     });
   }
+    btnClick = (event) =>{
+    console.log(this.state.celebName + ' is famous for their role in ' + this.state.role );
+    
+  }
+  
   render() {
     return (
       <div className="App">
@@ -42,9 +47,10 @@ class App extends Component {
           <input onChange={this.eventHandle2} type="text" placeholder="Role"></input>
           <br>
           </br>
+          <button onClick={this.btnClick}>Update!</button>
         </header>
 
-        <p>{this.state.celebName} is famous for their role in {this.state.role}.</p>
+        {/* <p>{this.state.celebName} is famous for their role in {this.state.role}.</p> */}
       </div>
     );
   }
