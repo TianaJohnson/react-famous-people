@@ -1,28 +1,54 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+
 import './App.css';
 
 class App extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      celebName: 'Felicia Day',
+      role: 'The Guild'
+    };
+    console.log(this.state);
+  }
+  eventHandle = (event) => {
+    console.log(event.target.value);
+    // Let's change state, which triggers render()
+    this.setState({
+      // event.target is the input field
+      celebName: event.target.value
+
+    });
+  }
+
+  eventHandle2 = (event) => {
+    console.log(event.target.value);
+    // Let's change state, which triggers render()
+    this.setState({
+      // event.target is the input field
+      role: event.target.value,
+
+    });
+  }
   render() {
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
+          <h1>Famous People!</h1>
+          <br></br>
+          <input onChange={this.eventHandle} type="text" placeholder="Name"></input>
+          <br></br>
+          <input onChange={this.eventHandle2} type="text" placeholder="Role"></input>
+          <br>
+          </br>
         </header>
+
+        <p>{this.state.celebName} is famous for their role in {this.state.role}.</p>
       </div>
     );
   }
 }
+
 
 export default App;
